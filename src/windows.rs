@@ -68,7 +68,7 @@ impl SerialPort for Serial {
     }
 
     /// Return the name associated with the serial port, if known.
-    fn port_name(&self) -> Option<String> {
+    fn name(&self) -> Option<String> {
         self.inner.port_name()
     }
 
@@ -77,7 +77,7 @@ impl SerialPort for Serial {
     /// This function returns `None` if the baud rate could not be determined. This may occur if
     /// the hardware is in an uninitialized state. Setting a baud rate with `set_baud_rate()`
     /// should initialize the baud rate to a supported value.
-    fn baud_rate(&self) -> Option<::BaudRate> {
+    fn baud_rate(&self) -> serialport::Result<u32> {
         self.inner.baud_rate()
     }
 
@@ -87,7 +87,7 @@ impl SerialPort for Serial {
     /// if the hardware is in an uninitialized state or is using a non-standard character size.
     /// Setting a baud rate with `set_char_size()` should initialize the character size to a
     /// supported value.
-    fn data_bits(&self) -> Option<::DataBits> {
+    fn data_bits(&self) -> serialport::Result<::DataBits> {
         self.inner.data_bits()
     }
 
@@ -97,7 +97,7 @@ impl SerialPort for Serial {
     /// occur if the hardware is in an uninitialized state or is using an unsupported flow control
     /// mode. Setting a flow control mode with `set_flow_control()` should initialize the flow
     /// control mode to a supported value.
-    fn flow_control(&self) -> Option<::FlowControl> {
+    fn flow_control(&self) -> serialport::Result<::FlowControl> {
         self.inner.flow_control()
     }
 
@@ -106,7 +106,7 @@ impl SerialPort for Serial {
     /// This function returns `None` if the parity mode could not be determined. This may occur if
     /// the hardware is in an uninitialized state or is using a non-standard parity mode. Setting
     /// a parity mode with `set_parity()` should initialize the parity mode to a supported value.
-    fn parity(&self) -> Option<::Parity> {
+    fn parity(&self) -> serialport::Result<::Parity> {
         self.inner.parity()
     }
 
@@ -116,7 +116,7 @@ impl SerialPort for Serial {
     /// occur if the hardware is in an uninitialized state or is using an unsupported stop bit
     /// configuration. Setting the number of stop bits with `set_stop-bits()` should initialize the
     /// stop bits to a supported value.
-    fn stop_bits(&self) -> Option<::StopBits> {
+    fn stop_bits(&self) -> serialport::Result<::StopBits> {
         self.inner.stop_bits()
     }
 
