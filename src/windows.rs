@@ -69,7 +69,7 @@ impl SerialPort for Serial {
 
     /// Return the name associated with the serial port, if known.
     fn name(&self) -> Option<String> {
-        self.inner.port_name()
+        self.inner.name()
     }
 
     /// Returns the current baud rate.
@@ -141,7 +141,7 @@ impl SerialPort for Serial {
     /// If the implementation does not support the requested baud rate, this function may return an
     /// `InvalidInput` error. Even if the baud rate is accepted by `set_baud_rate()`, it may not be
     /// supported by the underlying hardware.
-    fn set_baud_rate(&mut self, baud_rate: ::BaudRate) -> serialport::Result<()> {
+    fn set_baud_rate(&mut self, baud_rate: u32) -> serialport::Result<()> {
         self.inner.set_baud_rate(baud_rate)
     }
 
