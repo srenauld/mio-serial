@@ -15,11 +15,6 @@ categories = ["asynchronous", "hardware-support"]
 appveyor = { repository = "berkowski/mio-serial", service = "github" }
 travis-ci = { repository = "berkowski/mio-serial", service = "github" }
 
-[features]
-default = ["libudev"]
-
-libudev = ["serialport/libudev"]
-
 [dependencies]
 mio = "0.6"
 serialport = "~3.1"
