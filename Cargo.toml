@@ -17,7 +17,7 @@ travis-ci = { repository = "berkowski/mio-serial", service = "github" }
 
 [dependencies]
 mio = "0.6"
-serialport = "~3.1"
+serialport = { git = "https://github.com/srenauld/serialport-rs" }
 
 [target.'cfg(unix)'.dependencies]
 nix = "0.11"
